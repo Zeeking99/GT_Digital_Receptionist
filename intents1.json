@@ -1,0 +1,94 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day",
+        "Good Morning",
+        "Good Afternoon",
+        "Good Evening"
+      ],
+      "responses": [
+        "Hey :-), Please identify yourself.",
+        "Hi there, Please identify yourself.",
+        "Hi there, Please identify yourself.",
+        "Hello, Please identify yourself."
+      ]
+    },
+    {
+      "tag": "identification",
+
+      "patterns": [
+        "Employee",
+        "Visitor"
+      ],
+
+      "responses": [
+        "Scan your ID card"
+      ]    
+    },
+    {
+      "tag" : "directions",
+
+      "patterns": [
+        "Can you tell me the directions to the meeting room?",
+        "Can you tell me the directions to the banquet hall?",
+        "How do I get to the meeting room?",
+        "Where is the meeting room?"
+      ],
+
+      "responses": [
+        "Go straight and turn left into the first hallway and look for room no 45"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", 
+        "See you later", 
+        "Goodbye", 
+        "Thank You for the help",
+        "Good Bye"
+      ],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon.",
+        "Glad to help"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "appointment",
+      "patterns": [
+        "Can you get me an appointment?",
+        "Book me an appointment",
+        "Can I want to meet your manager"
+      ],
+      "responses": [
+        "Do you have an appointment?"
+      ]
+    },
+    {
+      "tag": "schedule",
+
+      "patterns": [
+        "What is in my calendar today?",
+        "What are my appointments for today?",
+        "Show my meetings"
+      ],
+
+      "responses": [
+        "Here are your appointments: "
+      ]
+    }
+  ]
+}
