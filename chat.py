@@ -81,7 +81,7 @@ while True:
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 text = random.choice(intent['responses'])
-                engine.say(text)
+                engine.say(text)        # code for text to speech
                 print(f"{bot_name}: {text}")
                 engine.runAndWait()
     
