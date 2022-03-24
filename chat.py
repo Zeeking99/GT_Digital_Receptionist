@@ -12,7 +12,7 @@ from nltk_utils import bag_of_words, tokenize
 
 bot_name = "Sam"
 
-def chat(user_input):
+def chatbot(user_input):
     #r = sr.Recognizer()   # initialising a recognizer object
 
     #sr.Microphone.list_microphone_names()  
@@ -105,6 +105,6 @@ while(True):
     if user_input == "quit":
         break
 
-    response = chat(user_input)
+    response = chatbot(user_input)
 
     print(f"{bot_name}: {response}")

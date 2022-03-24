@@ -9,21 +9,22 @@ import SplitPane from "react-split-pane";
 const initialMessages = [
   {
     type: 'text',
-    content: { text: 'Welcome to Digital Receptionist Sam' },
-    user: { avatar: 'http://127.0.0.1:5500/src/logo.svg'}
+    content: { text: 'Hello, This is Digital Receptionist Sam' },
+    user: { avatar: 'http://127.0.0.1:5500/frontend_interface/src/logo.svg'}
   },
 ];
 
 export default function App() {
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
 
-  function handleSend(type, val) {
+  function handleSend(type, val) 
+  {
     if (type === "text" && val.trim()) {
       appendMsg({
         type: "text",
         content: { text: val },
         position: "right",
-        user :{ avatar: 'http://127.0.0.1:5500/src/user.svg' }
+        user :{ avatar: 'http://127.0.0.1:5500/frontend_interface/src/user.svg' }
       });
 
       setTyping(true);
@@ -32,7 +33,7 @@ export default function App() {
         appendMsg({
           type: "text",
           content: { text: "YaYa" },
-          user: { avatar: 'http://127.0.0.1:5500/src/logo.svg' },
+          user: { avatar: 'http://127.0.0.1:5500/frontend_interface/src/logo.svg' },
         });
       }, 1000);
     }
@@ -74,6 +75,7 @@ export default function App() {
     <SplitPane split='vertical' size={500}>
     <Chat
       locale="en-US"
+      placeholder="Type here..."
       navbar={{ title: "Digital Receptionist Sam" }}
       messages={messages}
       renderMessageContent={renderMessageContent}
