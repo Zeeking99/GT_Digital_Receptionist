@@ -27,6 +27,18 @@ export default function App() {
         user :{ avatar: 'http://127.0.0.1:5500/frontend_interface/src/user.svg' }
       });
 
+      fetch(`http://localhost:5000/send`, 
+            {
+              'method':'POST',
+              headers:
+              {
+                'Content-Type':'application/json'
+              },
+              body:JSON.stringify(val)
+            })
+            .then(response => response.json)
+            .catch(error => console.log("IT is an error"))
+
       setTyping(true);
 
       setTimeout(() => {
@@ -72,7 +84,7 @@ export default function App() {
   return (
     <SplitPane split="vertical" size={950}>
       <div>Digital Human</div>
-    <SplitPane split='vertical' size={500}>
+    <SplitPane split='vertical' size={400}>
     <Chat
       locale="en-US"
       placeholder="Type here..."

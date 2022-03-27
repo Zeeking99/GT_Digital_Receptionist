@@ -99,12 +99,16 @@ def chatbot(user_input):
 
 # Calling the chat function in a loop
 
-while(True):
-    user_input = input("You: ")
+#while(True):
+#    user_input = input("You: ")
+#
+#    if user_input == "quit":
+#        break
+#
+#    response = chatbot(user_input)
+#
+#    print(f"{bot_name}: {response}")
 
-    if user_input == "quit":
-        break
 
-    response = chatbot(user_input)
-
-    print(f"{bot_name}: {response}")
+if __name__ == "__main__":
+    chatbot()
