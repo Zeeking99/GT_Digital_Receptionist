@@ -37,7 +37,7 @@ export default function App() {
               body:JSON.stringify(val)
             })
             .then(response => response.json)
-            .catch(error => console.log("IT is an error"))
+            .catch(error => console.log(error))
 
       setTyping(true);
 
