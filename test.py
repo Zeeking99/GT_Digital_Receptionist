@@ -1,6 +1,7 @@
 from app import app
 from flask import json
 
+
 def test_response():        
     response = app.test_client().post(
         '/send',
@@ -13,3 +14,5 @@ def test_response():
     assert response.status_code == 200
 #    assert data['sum'] == 3
     print(data['val'])
+
+test_response()
