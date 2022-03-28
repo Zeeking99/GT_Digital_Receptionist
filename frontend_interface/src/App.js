@@ -3,6 +3,7 @@ import Chat, { Bubble, useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
 import SplitPane from "react-split-pane";
+import API from "./APIcall"
 //import ChatSDK from "@chatui/core";
 //import './chatui-theme.css';
 
@@ -27,24 +28,29 @@ export default function App() {
         user :{ avatar: 'http://127.0.0.1:5500/frontend_interface/src/user.svg' }
       });
 
-      fetch(`http://localhost:5000/send`, 
-            {
-              'method':'POST',
-              headers:
-              {
-                'Content-Type':'application/json'
-              },
-              body:JSON.stringify(val)
-            })
-            .then(response => response.json)
-            .catch(error => console.log(error))
+      let response = API(val)
+
+      console.log(response)
+      //const res = await fetch(`http://localhost:5000/send`, 
+      //  {
+      //    'method':'POST',
+      //    headers:
+      //    {
+      //      'Content-Type':'application/json'
+      //    },
+      //    body: JSON.stringify({msg: val})
+      //  })
+      //  .then(response => response.json)
+      //  .then()
+      //  .catch(error => console.log(error))
+
 
       setTyping(true);
 
       setTimeout(() => {
         appendMsg({
           type: "text",
-          content: { text: "YaYa" },
+          content: { text: "Fuckkkkkkk" },
           user: { avatar: 'http://127.0.0.1:5500/frontend_interface/src/logo.svg' },
         });
       }, 1000);
