@@ -92,11 +92,11 @@ export default function App() {
   });
 */
   return (
-    <SplitPane split="vertical" size={950}>
+    <SplitPane split="vertical" size={850}>
       <div>Digital Human
-        <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={600} width={500}/>
+        <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={600}/>
       </div>
-    <SplitPane split='vertical' size={400}>
+    <SplitPane split='vertical' size={1050}>
     <Chat
       locale="en-US"
       placeholder="Type here..."
