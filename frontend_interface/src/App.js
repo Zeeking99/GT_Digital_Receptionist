@@ -1,12 +1,13 @@
 import React from "react";
-import Chat, { Bubble, useMessages } from "@chatui/core";
+import Chat, { Bubble,  Icon,  IconButton,  useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
-import SplitPane, { Pane } from "react-split-pane";
+import SplitPane from "react-split-pane";
+//import Dictaphone from "./Dictaphone";
 import API from "./APIcall"
 //import ChatSDK from "@chatui/core";
 //import './chatui-theme.css';
-//
+
 const initialMessages = [
   {
     type: 'text',
@@ -49,14 +50,14 @@ export default function App() {
     const { content } = msg;
     return <Bubble content={content.text} />;
   }
-/*
+  /*
   new ChatSDK({
     config: {
       toolbar: [
         {
           type: 'speech',
           icon: 'mic',
-          title: '语音输入'
+          title: 'Hold to Speak'
         }
       ]
     },
@@ -73,15 +74,9 @@ export default function App() {
         }
       }
     }
-  });
-  
-     <Pane  initialSize={500}  minSize={500} maxSize={850}>
-        <div>Digital Human
-          <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>
-        </div>
-      //</Pane>
-      <Pane initialSize={500}  minSize={500} maxSize={650}  primary="second">
-*/
+  }); 
+  */
+
   return (
     <SplitPane split='vertical'  defaultSize={650} minSize={650} maxSize={800}> 
       <Chat
@@ -90,9 +85,21 @@ export default function App() {
         navbar={{ title: "Digital Receptionist Sam" }}
         messages={messages}
         renderMessageContent={renderMessageContent}
-        onSend={handleSend}  
+        onSend={handleSend}   
+        recorder={{ canRecord: true }}
+        //icon = "mic"
+        toolbar={[
+          {
+            type: "speech",
+            icon: "mic",
+            title: "Speak",
+            img: "http://localhost:5500/frontend_interface/src/voice.png"
+          }
+        ]}
+        
       /> 
-      <div>Digital Human
+      <Icon type="mic"/>
+      <div> Digital Human
           <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>
       </div>
     </SplitPane>
