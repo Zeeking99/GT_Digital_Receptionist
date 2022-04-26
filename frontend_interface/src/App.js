@@ -2,9 +2,9 @@ import React from "react";
 import Chat, { Bubble, useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
-import SplitPane, { Pane } from "react-split-pane";
+import SplitPane from "react-split-pane";
 import API from "./APIcall"
-//import ChatSDK from "@chatui/core";
+import ChatSDK from "@chatui/core";
 //import './chatui-theme.css';
 //
 const initialMessages = [
@@ -49,6 +49,7 @@ export default function App() {
     const { content } = msg;
     return <Bubble content={content.text} />;
   }
+
 /*
   new ChatSDK({
     config: {
@@ -56,7 +57,7 @@ export default function App() {
         {
           type: 'speech',
           icon: 'mic',
-          title: '语音输入'
+          title: 'Speak now'
         }
       ]
     },
@@ -74,23 +75,26 @@ export default function App() {
       }
     }
   });
-  
-     <Pane  initialSize={500}  minSize={500} maxSize={850}>
-        <div>Digital Human
-          <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>
-        </div>
-      //</Pane>
-      <Pane initialSize={500}  minSize={500} maxSize={650}  primary="second">
-*/
+*/  
+
   return (
-    <SplitPane split='vertical'  defaultSize={650} minSize={650} maxSize={800}> 
+    <SplitPane split='vertical'  defaultSize={450} minSize={450} maxSize={650}> 
       <Chat
         locale="en-US"
         placeholder="Type here..."
+        inputType="text"
         navbar={{ title: "Digital Receptionist Sam" }}
         messages={messages}
         renderMessageContent={renderMessageContent}
-        onSend={handleSend}  
+        onSend={handleSend}
+        recorder={{ canRecord: true }}
+        toolbar={[
+          {
+            type: "speech",
+            icon: "mic",
+            title: "Speak"
+          }
+        ]}
       /> 
       <div>Digital Human
           <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>
