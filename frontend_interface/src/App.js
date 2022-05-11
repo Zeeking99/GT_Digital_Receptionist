@@ -3,10 +3,7 @@ import Chat, { Bubble,  Icon,  IconButton,  useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
 import SplitPane from "react-split-pane";
-<<<<<<< HEAD
 //import Dictaphone from "./Dictaphone";
-=======
->>>>>>> 3e6d04007146d8dba5031dfdd1da492f955de8a6
 import API from "./APIcall"
 import ChatSDK from "@chatui/core";
 //import './chatui-theme.css';
@@ -53,23 +50,15 @@ export default function App() {
     const { content } = msg;
     return <Bubble content={content.text} />;
   }
-<<<<<<< HEAD
-  /*
-=======
-
+  
 /*
->>>>>>> 3e6d04007146d8dba5031dfdd1da492f955de8a6
   new ChatSDK({
     config: {
       toolbar: [
         {
           type: 'speech',
           icon: 'mic',
-<<<<<<< HEAD
           title: 'Hold to Speak'
-=======
-          title: 'Speak now'
->>>>>>> 3e6d04007146d8dba5031dfdd1da492f955de8a6
         }
       ]
     },
@@ -86,13 +75,8 @@ export default function App() {
         }
       }
     }
-<<<<<<< HEAD
   }); 
   */
-=======
-  });
-*/  
->>>>>>> 3e6d04007146d8dba5031dfdd1da492f955de8a6
 
   return (
     <SplitPane split='vertical'  defaultSize={450} minSize={450} maxSize={650}> 
@@ -103,29 +87,16 @@ export default function App() {
         navbar={{ title: "Digital Receptionist Sam" }}
         messages={messages}
         renderMessageContent={renderMessageContent}
-<<<<<<< HEAD
         onSend={handleSend}   
         recorder={{ canRecord: true }}
         //icon = "mic"
-=======
-        onSend={handleSend}
-        recorder={{ canRecord: true }}
->>>>>>> 3e6d04007146d8dba5031dfdd1da492f955de8a6
         toolbar={[
           {
             type: "speech",
             icon: "mic",
-<<<<<<< HEAD
-            title: "Speak",
-            img: "http://localhost:5500/frontend_interface/src/voice.png"
-          }
-        ]}
-        
-=======
             title: "Speak"
           }
         ]}
->>>>>>> 3e6d04007146d8dba5031dfdd1da492f955de8a6
       /> 
       <Icon type="mic"/>
       <div> Digital Human
