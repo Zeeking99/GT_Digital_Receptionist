@@ -1,5 +1,6 @@
 ## Node Cache
 .cache
+node_modules
 
 ## Credential Files
 creds.json

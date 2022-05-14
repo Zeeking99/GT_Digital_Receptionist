@@ -3,7 +3,7 @@ import Chat, { Bubble,  Icon,  IconButton,  useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
 import SplitPane from "react-split-pane";
-//import Dictaphone from "./Dictaphone";
+import Dictaphone from "./Dictaphone";
 import API from "./APIcall"
 import ChatSDK from "@chatui/core";
 //import './chatui-theme.css';
@@ -89,16 +89,17 @@ export default function App() {
         renderMessageContent={renderMessageContent}
         onSend={handleSend}   
         recorder={{ canRecord: true }}
-        //icon = "mic"
+        onToolbarClick={console.log("Toolbar Clicked")}
         toolbar={[
           {
             type: "speech",
-            icon: "mic",
-            title: "Speak"
+            title: "Speak",
+            img: "http://localhost:5500/frontend_interface/src/voice.png",
+            
           }
         ]}
       /> 
-      <Icon type="mic"/>
+      {/* <Dictaphone/> For some reason works properly only on a few systems */ }
       <div> Digital Human
           <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>
       </div>
