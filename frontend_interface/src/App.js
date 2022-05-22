@@ -93,7 +93,6 @@ export default function App() {
         renderMessageContent={renderMessageContent}
         onSend={handleSend}   
         recorder={{ canRecord: true }}
-        //icon = "mic"
         toolbar={[
           {
             type: "speech",
