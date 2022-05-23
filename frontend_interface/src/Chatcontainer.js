@@ -80,8 +80,7 @@ function Chatcontainer() {
       setMic(false)
       SpeechRecognition.stopListening()
 
-
-      handleSend({type: 'text', val:"Hello"})
+      handleSend( 'text', "Good Morning")
     }
   }
   

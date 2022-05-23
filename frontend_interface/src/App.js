@@ -2,14 +2,6 @@ import React, { useCallback, useState } from "react";
 import Chat, { Bubble,  Icon,  IconButton,  useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
-import SplitPane from "react-split-pane";
-import API from "./APIcall"
-import MyImageCaptureComponent from "./imagecapture";
-import ChatSDK from "@chatui/core";
-//import './chatui-theme.css';
-import SpeechRecognition, {
-  useSpeechRecognition
-} from "react-speech-recognition";
 import Chatcontainer from "./Chatcontainer";
 
 //const initialMessages = [
