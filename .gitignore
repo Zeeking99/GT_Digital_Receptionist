@@ -1,6 +1,12 @@
 ## Node Cache
 .cache
+<<<<<<< HEAD
 node_modules
 
 ## Credential Files
 creds.json
+=======
+
+## Credential Files
+creds.json
+>>>>>>> master
