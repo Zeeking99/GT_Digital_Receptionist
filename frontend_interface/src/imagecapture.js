@@ -36,6 +36,35 @@ const MyImageCaptureComponent = () => {
   const formData = new FormData();
   formData.append("file", imgFile);
 
+  /*function toDataURL(url, callback) {
+    let xhRequest = new XMLHttpRequest();
+    
+    xhRequest.onload = function () {
+    
+      let reader = new FileReader();
+    
+      reader.onloadend = function () {
+          callback(reader.result);
+        }
+        reader.readAsDataURL(xhRequest.response);
+      };
+
+      xhRequest.open('GET', url);
+      xhRequest.responseType = 'blob';
+      xhRequest.send();
+    }
+
+    toDataURL('https://www.avatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function (dataUrl) {
+      console.log('RESULT:', dataUrl)
+    })*/
+
+    async function sendImage()
+    {
+      let name = await imageAPI(imgFile) 
+      console.log("Function Called")
+      setImgStat('Sent')
+      console.log(imgStat)
+    }  
 
   return (
     <div>
@@ -53,8 +82,7 @@ const MyImageCaptureComponent = () => {
           <img src={imgSrc} alt="captured-img" />
         </div>
       )}
-      <button onClick={ async () => { let name = await imageAPI(imgFile) 
-                                      setImgStat('Sent')} }>{imgStat}</button>
+      <button onClick={ sendImage }>{imgStat}</button>
     </div>
   );
 };

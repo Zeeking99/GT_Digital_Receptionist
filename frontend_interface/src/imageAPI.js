@@ -1,16 +1,14 @@
 import axios from 'axios'
-//import imageToBase64 from 'image-to-base64'
 
 async function imageAPI(image)
 {
-    /*const payload =
+    const payload =
     {
-        val : image
-    }*/
+        val : "Image"
+    }
 
-    //let baseimage = imageToBase64(image)
     console.log(image)
-    const response = await axios.post('http://localhost:5000/sendimage', image, {headers : { 'Content-Type': image.type}})
+    const response = await axios.post('http://localhost:5000/sendimage', payload)
     
     //console.log(response.data.val)
     //resp = response.data.val
