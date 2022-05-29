@@ -79,8 +79,8 @@ function Chatcontainer() {
     {
       setMic(false)
       SpeechRecognition.stopListening()
-
-      handleSend( 'text', "Good Morning")
+      
+      handleSend( 'text', finalTranscript )
     }
   }
   
