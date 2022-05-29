@@ -10,8 +10,13 @@
     "create-react-app": "^5.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-image-data-capture": "^1.2.2",
     "react-scripts": "5.0.0",
+<<<<<<< HEAD
+    "react-speech-recognition": "^3.9.1",
+=======
     "react-speech-recognition": "^3.9.0",
+>>>>>>> 5059455ab1078822f13e50e8c3e6feafcfacad62
     "react-split-pane": "^0.1.92",
     "web-vitals": "^2.1.4"
   },
