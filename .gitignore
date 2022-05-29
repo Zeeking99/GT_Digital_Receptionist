@@ -1,0 +1,9 @@
+## Node Cache
+.cache
+node_modules
+
+## Credential Files
+creds.json
+
+## Python Cache
+__pycache__
