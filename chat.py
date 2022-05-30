@@ -98,13 +98,14 @@ class Chatbot:
             
 
     def chat_response(self, user_input):
-        
+
         sentence = user_input
         #sentence = input("You: ")
         #if sentence == "quit":
         #    break
 
         sentence = tokenize(sentence)
+
         X = bag_of_words(sentence, self.all_words)
         X = X.reshape(1, X.shape[0])
         X = torch.from_numpy(X).to(self.device)

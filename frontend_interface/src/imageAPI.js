@@ -4,14 +4,12 @@ async function imageAPI(image)
 {
     const payload =
     {
-        val : "Image"
+        val : image
     }
 
-    console.log(image)
-    const response = await axios.post('http://localhost:5000/sendimage', payload)
+    //console.log(image)
+    const response = await axios.post('http://localhost:5000/sendimage', image)
     
-    //console.log(response.data.val)
-    //resp = response.data.val
     return response
 }
 
