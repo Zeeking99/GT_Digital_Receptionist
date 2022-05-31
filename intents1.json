@@ -5,20 +5,51 @@
       "patterns": [
         "Hi",
         "Hey",
-        "How are you",
-        "Is anyone there?",
         "Hello",
-        "Good day",
+        "Good Day",
         "Good Morning",
         "Good Afternoon",
         "Good Evening"
       ],
-      "responses": [
-        "Hey :-), Please identify yourself.",
-        "Hi there, Please identify yourself.",
-        "Hi there, Please identify yourself.",
-        "Hello, Please identify yourself."
+      "responses" : [
+        "Hey, How are you doing?"
       ]
+    },
+    {
+      "tag" : "idenity"
+      "responses": [
+        "Hey :-), Can you please identify yourself.",
+        "Hi there, Can you please identify yourself.",
+        "Hi there, Can you please identify yourself.",
+        "Hello, Can you please identify yourself."
+      ]
+    },
+    {
+      "tag" : "self",
+      "patterns" : [
+        "Tell me about yourself",
+        "What can you do?",
+        "Who are you?",
+        "What's your job?",
+        "Why are you here?"
+      ],
+      "responses" : [
+        "I am Sam. I am a Digital Receptionist. I can assist you with various tasks."
+      ]
+    },
+    {
+      "tag" : "creator",
+      "patterns" : [
+        "Who created you?",
+        "Who are your creators?",
+        "Where are your creators?"
+      ],
+      "responses" : [
+        "I was created by Zeeshan and Thulashini."
+      ]
+    },
+    {
+
     },
     {
       "tag": "identification",

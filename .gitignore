@@ -7,3 +7,6 @@ creds.json
 
 ## Python Cache
 __pycache__
+
+## Visual Code Configuration
+.vscode
