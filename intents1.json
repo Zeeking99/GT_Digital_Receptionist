@@ -15,13 +15,18 @@
         "Hey, How are you doing?"
       ]
     },
+
     {
-      "tag" : "idenity"
-      "responses": [
-        "Hey :-), Can you please identify yourself.",
-        "Hi there, Can you please identify yourself.",
-        "Hi there, Can you please identify yourself.",
-        "Hello, Can you please identify yourself."
+      "tag" : "identity",
+      "patterns": [
+        "I am doing good",
+        "I am good",
+        "I am great thank you",
+        "I am fine thank you",
+        "I am doing great"
+      ],
+      "responses" : [
+        "Fantastic, Can you please identify yourself."
       ]
     },
     {
@@ -48,24 +53,22 @@
         "I was created by Zeeshan and Thulashini."
       ]
     },
-    {
 
-    },
     {
       "tag": "identification",
-
       "patterns": [
         "Employee",
-        "Visitor"
+        "Visitor",
+        "Student"
       ],
 
       "responses": [
-        "Scan your ID card"
+        "Snap a picture of yourself on the right side and click the button"
       ]    
     },
+
     {
       "tag" : "directions",
-
       "patterns": [
         "Can you tell me the directions to the meeting room?",
         "Can you tell me the directions to the banquet hall?",
@@ -77,6 +80,7 @@
         "Go straight and turn left into the first hallway and look for room no 45"
       ]
     },
+
     {
       "tag": "goodbye",
       "patterns": ["Bye", 
@@ -92,11 +96,13 @@
         "Glad to help"
       ]
     },
+
     {
       "tag": "thanks",
       "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
       "responses": ["Happy to help!", "Any time!", "My pleasure"]
     },
+
     {
       "tag": "appointment",
       "patterns": [
@@ -108,9 +114,9 @@
         "Do you have an appointment?"
       ]
     },
+
     {
       "tag": "schedule",
-
       "patterns": [
         "What is in my calendar today?",
         "What are my appointments for today?",
