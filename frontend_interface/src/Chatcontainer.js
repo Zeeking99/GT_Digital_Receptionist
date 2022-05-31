@@ -81,6 +81,8 @@ function Chatcontainer() {
       SpeechRecognition.stopListening()
       
       handleSend( 'text', finalTranscript )
+
+      resetTranscript()
     }
   }
   
