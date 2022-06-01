@@ -61,8 +61,8 @@ const MyImageCaptureComponent = () => {
     async function sendImage()
     {
       let name = await imageAPI(imgSrc) 
-      console.log(imgSrc)
-      setImgStat('Sent')
+      console.log(name.data)
+      setImgStat(name.data)
     }  
 
   return (

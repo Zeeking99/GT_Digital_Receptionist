@@ -4,17 +4,6 @@ import numpy as np
 import io, base64
 from PIL import Image
 
-#known_image = face_recognition.load_image_file("/home/zeeking99/Pictures/IMG_20210414_090012.jpg")
-#unknown_image = face_recognition.load_image_file("/home/zeeking99/Pictures/Screenshot from 2021-03-20 11-46-09.png")
-#
-#zeeshan_encoding = face_recognition.face_encodings(known_image)[0]
-#unknown_encoding = face_recognition.face_encodings(unknown_image)[0]
-#
-#results = face_recognition.compare_faces([zeeshan_encoding], unknown_encoding)
-#
-#print(results)
-#
-#
 ## This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
 ## other example, but it includes some basic performance tweaks to make things run a lot faster:
 ##   1. Process each video frame at 1/4 resolution (though still display it at full resolution)
@@ -125,17 +114,58 @@ from PIL import Image
 #video_capture.release()
 #cv2.destroyAllWindows()
 
-def frfunction(image_base64):
-    pass
 
-    #image = Image.open(io.BytesIO(base64.decodebytes(bytes(image_base64, "utf-8"))))    
 
-    with open("savedImage.png", "wb") as testImage:
-        testImage.write(base64.decodebytes(image_base64))
+class Frobject:
 
-    return True
-    
+    known_faces_path = [
+        "./known_pictures/zeeshan.jpg",
+        "./known_pictures/thulashini.jpg"
+    ]
 
-status = False
-status = frfunction(encoding)
-print(status)
+    known_face_images = []
+    known_face_encodings = []
+    known_face_names = []
+
+
+    def __init__(self):
+
+        for x in self.known_faces_path:
+            self.known_face_images.append(face_recognition.load_image_file(x))
+
+        for x in self.known_face_images:
+            self.known_face_encodings.append(face_recognition.face_encodings(x)[0])
+
+        for x in self.known_faces_path:
+            self.known_face_names.append( x.split("/")[-1].split('.')[0] )  # splitting the path of the images to get the name of the file
+
+
+
+    def frfunction(self, image_base64):
+
+        face_encodings = []
+        face_locations = []
+        face_names = []
+        name = 'unknown'
+
+        imgjp = open('image.png', 'wb')
+        imgjp.write(base64.b64decode(image_base64))
+        imgjp.close()
+
+        unknown_image = face_recognition.load_image_file("image.png")
+
+        face_locations = face_recognition.face_locations(unknown_image)
+        face_encodings = face_recognition.face_encodings(unknown_image, face_locations)
+
+        for face_encoding in face_encodings:
+            matches = face_recognition.compare_faces(self.known_face_encodings, face_encoding)
+
+            face_distances = face_recognition.face_distance(self.known_face_encodings, face_encoding)
+            best_match_index = np.argmin(face_distances)
+            
+            if matches[best_match_index]:
+                name = self.known_face_names[best_match_index]
+
+            face_names.append(name)
+
+        return name

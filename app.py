@@ -2,13 +2,15 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from chat import Chatbot
-#from fr import frfunction
+import base64
+from fr import Frobject
 
 app = Flask(__name__)
 cors  = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 c1 = Chatbot()
+f1 = Frobject()
 
 @app.route("/send", methods=['GET', "POST"])
 @cross_origin()
@@ -30,9 +32,10 @@ def face_recognition():
         image = image.decode()
         image = image[23:] # removing the headers
 
-        #frfunction(image)
-
-    return 'Ok' 
+        name = f1.frfunction(image)
+        print(name)
+        
+    return name
 
 if __name__ == "__main__":
     app.run()
