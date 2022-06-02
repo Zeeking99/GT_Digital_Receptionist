@@ -98,23 +98,58 @@ class Chatbot:
             
 
     def chat_response(self, user_input):
-        
+
         sentence = user_input
         #sentence = input("You: ")
         #if sentence == "quit":
         #    break
 
-#        if tag == "appointment":
-#           Have to implement google calender API
-#        else:
-        for intent in intents['intents']:
-            if tag == intent["tag"]:
-                text = random.choice(intent['responses'])
-                engine.say(text)        # code for text to speech
-                print(f"{bot_name}: {text}")
-                engine.runAndWait()
-    
-    else:
-        print(f"{bot_name}: I do not understand...")
-        engine.say("I do not understand")
-        engine.runAndWait()
+        sentence = tokenize(sentence)
+
+        X = bag_of_words(sentence, self.all_words)
+        X = X.reshape(1, X.shape[0])
+        X = torch.from_numpy(X).to(self.device)
+
+        output = self.model(X)
+        _, predicted = torch.max(output, dim=1)
+
+        tag = self.tags[predicted.item()]
+
+        probs = torch.softmax(output, dim=1)
+        prob = probs[0][predicted.item()]
+        
+        if prob.item() > 0.75:
+
+    #        if tag == "appointment":
+    #           Have to implement google calender API
+    #        else:
+            for intent in self.intents['intents']:
+                if tag == intent["tag"]:
+                    text = random.choice(intent['responses'])
+                    #engine.say(text)
+                    
+                    return(text)
+                    #print(f"{bot_name}: {text}")
+                    #engine.runAndWait()
+        
+        else:
+            return("I do not understand...")
+            #print(f"{bot_name}: I do not understand...")
+            #engine.say("I do not understand")
+            #engine.runAndWait()
+
+
+
+if __name__ == "__main__":
+    #Calling the chat function in a loop
+    c1 = Chatbot()
+
+    while(True):
+        user_input = input("You: ")
+
+        if user_input == "quit":
+            break
+
+        response = c1.chat_response(user_input)
+
+        print(f"{c1.bot_name}: {response}")
