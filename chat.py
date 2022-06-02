@@ -124,10 +124,11 @@ class Chatbot:
     #           Have to implement google calender API
     #        else:
             for intent in self.intents['intents']:
-                if tag == "date":
-                    print("Zeeshan")
 
                 if tag == intent["tag"]:
+                    if tag == "date":
+                        print("Zeeshan")
+                    
                     text = random.choice(intent['responses'])
                 
                     #engine.say(text)
