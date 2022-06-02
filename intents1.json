@@ -5,36 +5,70 @@
       "patterns": [
         "Hi",
         "Hey",
-        "How are you",
-        "Is anyone there?",
         "Hello",
-        "Good day",
+        "Good Day",
         "Good Morning",
         "Good Afternoon",
         "Good Evening"
       ],
-      "responses": [
-        "Hey :-), Please identify yourself.",
-        "Hi there, Please identify yourself.",
-        "Hi there, Please identify yourself.",
-        "Hello, Please identify yourself."
+      "responses" : [
+        "Hey, How are you doing?"
+      ]
+    },
+
+    {
+      "tag" : "identity",
+      "patterns": [
+        "I am doing good",
+        "I am good",
+        "I am great thank you",
+        "I am fine thank you",
+        "I am doing great"
+      ],
+      "responses" : [
+        "Fantastic, Can you please identify yourself."
       ]
     },
     {
-      "tag": "identification",
+      "tag" : "self",
+      "patterns" : [
+        "Tell me about yourself",
+        "What can you do?",
+        "Who are you?",
+        "What's your job?",
+        "Why are you here?"
+      ],
+      "responses" : [
+        "I am Sam. I am a Digital Receptionist. I can assist you with various tasks."
+      ]
+    },
+    {
+      "tag" : "creator",
+      "patterns" : [
+        "Who created you?",
+        "Who are your creators?",
+        "Where are your creators?"
+      ],
+      "responses" : [
+        "I was created by Zeeshan and Thulashini."
+      ]
+    },
 
+    {
+      "tag": "identification",
       "patterns": [
         "Employee",
-        "Visitor"
+        "Visitor",
+        "Student"
       ],
 
       "responses": [
-        "Scan your ID card"
+        "Snap a picture of yourself on the right side and click the button"
       ]    
     },
+
     {
       "tag" : "directions",
-
       "patterns": [
         "Can you tell me the directions to the meeting room?",
         "Can you tell me the directions to the banquet hall?",
@@ -46,6 +80,7 @@
         "Go straight and turn left into the first hallway and look for room no 45"
       ]
     },
+
     {
       "tag": "goodbye",
       "patterns": ["Bye", 
@@ -61,11 +96,13 @@
         "Glad to help"
       ]
     },
+
     {
       "tag": "thanks",
       "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
       "responses": ["Happy to help!", "Any time!", "My pleasure"]
     },
+
     {
       "tag": "appointment",
       "patterns": [
@@ -77,9 +114,9 @@
         "Do you have an appointment?"
       ]
     },
+
     {
       "tag": "schedule",
-
       "patterns": [
         "What is in my calendar today?",
         "What are my appointments for today?",

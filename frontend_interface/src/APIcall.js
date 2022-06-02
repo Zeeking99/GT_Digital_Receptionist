@@ -8,7 +8,7 @@ async function API(message)
         val : message
     }
 
-    const response = await axios.post('http://localhost:5000/send', payload)
+    const response = await axios.post('http://localhost:5000/send', message)
     
     //console.log(response.data.val)
     //resp = response.data.val

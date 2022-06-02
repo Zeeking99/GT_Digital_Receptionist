@@ -60,10 +60,9 @@ const MyImageCaptureComponent = () => {
 
     async function sendImage()
     {
-      let name = await imageAPI(imgFile) 
-      console.log("Function Called")
-      setImgStat('Sent')
-      console.log(imgStat)
+      let name = await imageAPI(imgSrc) 
+      console.log(name.data)
+      setImgStat(name.data)
     }  
 
   return (
@@ -72,7 +71,7 @@ const MyImageCaptureComponent = () => {
         <ImageCapture
           onCapture={onCapture}
           onError={onError}
-          width={300}
+          width={800}
           userMediaConfig={config}
         />
       )}
