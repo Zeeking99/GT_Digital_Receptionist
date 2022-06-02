@@ -71,7 +71,7 @@ const MyImageCaptureComponent = () => {
         <ImageCapture
           onCapture={onCapture}
           onError={onError}
-          width={300}
+          width={800}
           userMediaConfig={config}
         />
       )}

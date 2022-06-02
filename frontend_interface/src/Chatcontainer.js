@@ -141,8 +141,8 @@ function Chatcontainer() {
           {/* <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>  }
       </div> */}
 
-    <MyImageCaptureComponent/> 
-
+    <MyImageCaptureComponent/>
+    <img src="http://localhost:5500/BG-Bot.png" alt='Connection Error' width='1100' height = '900' />
     </SplitPane>  
     
   );
