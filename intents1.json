@@ -111,10 +111,22 @@
         "Can I want to meet your manager"
       ],
       "responses": [
-        "Do you have an appointment?"
+        "Send the Event Name, Date, Time and Duration in the following format Event Name: Birthday Date: DD/MM/YYYY Time: 24:00 Duration: 1 Hours"
       ]
     },
-
+    {
+      "tag": "date",
+      "patterns": [
+        "Date:",
+        "12/02/2022",
+        "12:55",
+        "Time:",
+        "Event Name"
+      ],
+      "responses": [
+        "Please hangon while we schedule the appointment"
+      ]
+    },
     {
       "tag": "schedule",
       "patterns": [
