@@ -22,11 +22,9 @@ const initialMessages = [
 function Chatcontainer() {
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
 
-  const [micOn, setMic] = useState(false)
-
   const {
-      transcript,
       listening,
+      transcript,
       resetTranscript,
       finalTranscript,
       browserSupportsSpeechRecognition
@@ -70,18 +68,17 @@ function Chatcontainer() {
 
   function onToolbarClick(item)
   {
-    if (item.type == 'speech' && micOn == false)
+    if (item.type == 'speech' && !listening)
     {
-      setMic(true)
       SpeechRecognition.startListening({continuous: true})
     }
     else
     {
-      setMic(false)
       SpeechRecognition.stopListening()
+      console.log(transcript)
       
-      handleSend( 'text', finalTranscript )
-
+      handleSend( 'text', transcript )
+     
       resetTranscript()
     }
   }
