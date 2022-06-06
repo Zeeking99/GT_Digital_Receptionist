@@ -1,5 +1,4 @@
-import React, { useCallback, useState } from "react";
-import Chat, { Bubble,  Icon,  IconButton,  useMessages } from "@chatui/core";
+import React from "react";
 import "@chatui/core/dist/index.css";
 import "./index.css";
 import Chatcontainer from "./Chatcontainer";
@@ -143,5 +142,9 @@ import Chatcontainer from "./Chatcontainer";
 
 export default function App()
 {
-  return ( <Chatcontainer/> );
+  return ( 
+
+    <Chatcontainer/> 
+    
+    );
 }

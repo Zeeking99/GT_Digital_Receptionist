@@ -8,6 +8,10 @@ Headbar{
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
 }
 
+.maincontainer{
+  background-image: url('/home/the_bot/Documents/GT_Digital_Receptionist/BG-Bot.png');
+}
+
 .center
 {
   display: block;

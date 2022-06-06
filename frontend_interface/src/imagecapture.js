@@ -14,7 +14,6 @@ const MyImageCaptureComponent = () => {
   const [imgSrc, setImgSrc] = useState(null);
   const [imgFile, setImgFile] = useState(null);
   const [imgStat, setImgStat] = useState('Click Me');
-  let imageSent;
 
   const onCapture = (imageData) => {
     // read as webP
@@ -66,12 +65,12 @@ const MyImageCaptureComponent = () => {
     }  
 
   return (
-    <div>
-      {showImgCapture && (
+    <div >
+     {showImgCapture && (
         <ImageCapture
           onCapture={onCapture}
           onError={onError}
-          width={800}
+          width={1200}
           userMediaConfig={config}
         />
       )}

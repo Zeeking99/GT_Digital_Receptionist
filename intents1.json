@@ -111,7 +111,7 @@
         "Can I want to meet your manager"
       ],
       "responses": [
-        "Send the Event Name, Date, Time and Duration in the following format Event Name: Birthday Date: DD/MM/YYYY Time: 24:00 Duration: 1 Hours"
+        "Send the Event Name, Date, Time and Duration in the following format Event Name: 'Birthday' Date: 'DD/MM/YYYY' Time: '24:00' Duration: '1 Hours'"
       ]
     },
     {

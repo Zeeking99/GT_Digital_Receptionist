@@ -95,7 +95,12 @@ class Chatbot:
 #                #print(f"{bot_name}: I do not understand...")
 #                #engine.say("I do not understand")
 #                #engine.runAndWait()
-            
+
+    def book_appointment(self, date_string):
+        print(list(date_string.split("'", )))
+
+
+        
 
     def chat_response(self, user_input):
 
@@ -127,7 +132,7 @@ class Chatbot:
 
                 if tag == intent["tag"]:
                     if tag == "date":
-                        print("Zeeshan")
+                        self.book_appointment(user_input)
                     
                     text = random.choice(intent['responses'])
                 

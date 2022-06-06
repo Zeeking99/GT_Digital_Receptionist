@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from "react";
-import Chat, { Bubble,  Icon,  IconButton,  useMessages } from "@chatui/core";
+import React from "react";
+import Chat, { Bubble,  /*Icon,  IconButton,  TreeNode,*/  useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
 import SplitPane from "react-split-pane";
 import API from "./APIcall"
 import MyImageCaptureComponent from "./imagecapture";
+import io from 'socket.io-client';
 import ChatSDK from "@chatui/core";
 //import './chatui-theme.css';
 import SpeechRecognition, {
@@ -19,10 +20,15 @@ const initialMessages = [
   },
 ];
 
+export const socket = io('ws://localhost:5000/');
+
 function Chatcontainer() {
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
+  
+  // Initiating a socketio connection
 
-  const [micOn, setMic] = useState(false)
+  socket.on("connect", () => { socket.emit('my event', {data: socket.connected}) } )
+  socket.on("disconnect", () => { console.log(socket.connected)} )
 
   const {
       transcript,
@@ -36,6 +42,7 @@ function Chatcontainer() {
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
+
   function handleSend(type, val) 
   {
     if (type === "text" && val.trim()) {
@@ -47,7 +54,6 @@ function Chatcontainer() {
       });
 //
       let response = API(val) // making the API call to receive a response from the bot.
-
 //
       //response.then(function(res) { return res[]})    
       setTyping(true);
@@ -70,19 +76,15 @@ function Chatcontainer() {
 
   function onToolbarClick(item)
   {
-    if (item.type == 'speech' && micOn == false)
+    if (item.type == 'speech' && !listening)
     {
-      setMic(true)
+      resetTranscript()
       SpeechRecognition.startListening({continuous: true})
     }
     else
     {
-      setMic(false)
       SpeechRecognition.stopListening()
-      
-      handleSend( 'text', finalTranscript )
-
-      resetTranscript()
+      handleSend( 'text', transcript )
     }
   }
   
@@ -136,13 +138,13 @@ function Chatcontainer() {
         ]}
       />
 
-
+      <MyImageCaptureComponent className='maincontainer'/>
       {/* <div> Digital Human
           {/* <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>  }
       </div> */}
-
-    <MyImageCaptureComponent/>
-    <img src="http://localhost:5500/BG-Bot.png" alt='Connection Error' width='1100' height = '900' />
+      {/*<div >
+        <img src="http://localhost:5500/BG-Bot.png" alt='Connection Error' height={900} width={1050}/>
+      </div>*/}
     </SplitPane>  
     
   );
