@@ -20,14 +20,14 @@ const initialMessages = [
   },
 ];
 
-export const socket = io('ws://localhost:5000/');
+const socket = io('ws://localhost:5000/');
 
 function Chatcontainer() {
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
   
   // Initiating a socketio connection
 
-  socket.on("connect", () => { socket.emit('my event', {data: socket.connected}) } )
+  socket.on("connect", () => { console.log(socket.connected) } )
   socket.on("disconnect", () => { console.log(socket.connected)} )
 
   const {
@@ -150,3 +150,4 @@ function Chatcontainer() {
 }
 
 export default Chatcontainer;
+export {socket}
