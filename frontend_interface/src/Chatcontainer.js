@@ -137,8 +137,7 @@ function Chatcontainer() {
           }
         ]}
       />
-
-      <MyImageCaptureComponent className='maincontainer'/>
+      <MyImageCaptureComponent/>
       {/* <div> Digital Human
           {/* <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>  }
       </div> */}

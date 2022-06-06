@@ -8,8 +8,14 @@ Headbar{
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
 }
 
-.maincontainer{
-  background-image: url('/home/the_bot/Documents/GT_Digital_Receptionist/BG-Bot.png');
+.backimage{
+  background-image: 'red';
+  width:950;
+  height:1450;
+}
+
+.clickbtn{
+  margin-top: 500;
 }
 
 .center

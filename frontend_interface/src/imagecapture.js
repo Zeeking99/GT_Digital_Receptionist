@@ -65,7 +65,7 @@ const MyImageCaptureComponent = () => {
     }  
 
   return (
-    <div >
+    <div className="backimage">
      {showImgCapture && (
         <ImageCapture
           onCapture={onCapture}
@@ -80,7 +80,7 @@ const MyImageCaptureComponent = () => {
           <img src={imgSrc} alt="captured-img" />
         </div>
       )}
-      <button onClick={ sendImage }>{imgStat}</button>
+      <button className='clickbtn' onClick={ sendImage }>{imgStat}</button>
     </div>
   );
 };
