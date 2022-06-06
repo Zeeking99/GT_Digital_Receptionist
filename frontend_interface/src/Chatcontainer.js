@@ -34,7 +34,6 @@ function Chatcontainer() {
       listening,
       transcript,
       resetTranscript,
-      finalTranscript,
       browserSupportsSpeechRecognition
     } = useSpeechRecognition();
 

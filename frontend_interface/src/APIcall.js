@@ -10,10 +10,14 @@ async function API(message)
 
     const response = await axios.post('http://localhost:5000/send', message)
 
-    const respond = socket.emit('user-message', message)
+    socket.emit('user-message', message)
+    let respond = ''
+
+    socket.on('user-message', (message) => { respond = message } )
+   
     console.log(respond)
-    
-    return response.data.val
+    //return response.data.val
+    return respond
 }
 
 export default API

@@ -1,8 +1,9 @@
 # libraries
+import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from chat import Chatbot
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, send
 from fr import Frobject
 
 
@@ -23,11 +24,10 @@ def connection_message(data):
 def chatbot_response(message):
     print(message)
     response =  c1.chat_response(message)
+
+    emit('user-message', response)
     response = jsonify({ 'val': response }) 
 
-    print(response)
-
-    return response
 
 # Function for receiving messages from the user and sending the response
 @app.route("/send", methods=['GET', "POST"])
