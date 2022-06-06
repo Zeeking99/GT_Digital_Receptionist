@@ -18,11 +18,14 @@ f1 = Frobject()
 def connection_message(data):
     print(data)
 
+# Websocket event to get a response from the chatbot
 @socketio.on('user-message')
-def disconnection_message(message):
+def chatbot_response(message):
     print(message)
     response =  c1.chat_response(message)
     response = jsonify({ 'val': response }) 
+
+    print(response)
 
     return response
 
@@ -33,7 +36,6 @@ def flask_chatbot_response():
     message = request.get_data()
     message = message.decode()
 
-    print(message)
     response =  c1.chat_response(message)
     response = jsonify({ 'val': response }) 
     
