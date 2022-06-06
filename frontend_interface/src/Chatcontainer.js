@@ -31,8 +31,8 @@ function Chatcontainer() {
   socket.on("disconnect", () => { console.log(socket.connected)} )
 
   const {
-      transcript,
       listening,
+      transcript,
       resetTranscript,
       finalTranscript,
       browserSupportsSpeechRecognition
