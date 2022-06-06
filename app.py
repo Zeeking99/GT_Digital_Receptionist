@@ -25,6 +25,7 @@ def chatbot_response(message):
     print(message)
     response =  c1.chat_response(message)
 
+    print(response)
     emit('user-message', response)
     response = jsonify({ 'val': response }) 
 
