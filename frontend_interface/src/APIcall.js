@@ -8,9 +8,8 @@ async function API(message)
         val : message
     }*/
 
-    const response = await axios.post('http://localhost:5000/send', message)
+    //const response = await axios.post('http://localhost:5000/send', message)
 
-    socket.emit('user-message', message)
     let respond = ''
 
     socket.on('user-message', (message) => { respond = message } )
@@ -18,6 +17,8 @@ async function API(message)
     console.log(respond)
     //return response.data.val
     return respond
+    
+    //return response.data.val
 }
 
 export default API

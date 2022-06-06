@@ -65,12 +65,13 @@ const MyImageCaptureComponent = () => {
     }  
 
   return (
-    <div className="backimage">
+    <div>
+    <div className="faceframe">
      {showImgCapture && (
         <ImageCapture
           onCapture={onCapture}
           onError={onError}
-          width={1200}
+          width={400}
           userMediaConfig={config}
         />
       )}
@@ -80,6 +81,7 @@ const MyImageCaptureComponent = () => {
           <img src={imgSrc} alt="captured-img" />
         </div>
       )}
+    </div>
       <button className='clickbtn' onClick={ sendImage }>{imgStat}</button>
     </div>
   );
