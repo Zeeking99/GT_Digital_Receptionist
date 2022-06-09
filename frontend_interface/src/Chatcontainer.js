@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Chat, { Bubble,  /*Icon,  IconButton,  TreeNode,*/  useMessages } from "@chatui/core";
+import eventForm from "./eventForm"
 import "@chatui/core/dist/index.css";
 import "./index.css";
 import SplitPane from "react-split-pane";
 import API from "./APIcall"
 import MyImageCaptureComponent from "./imagecapture";
 import io from 'socket.io-client';
-import ChatSDK from "@chatui/core";
+import ChatSDK, { Input } from "@chatui/core";
 //import './chatui-theme.css';
 import SpeechRecognition, {
   useSpeechRecognition
@@ -26,6 +27,7 @@ function Chatcontainer() {
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
   const [listener, setListener] = useState(false)
   
+  
   // Initiating a socketio connection
 
   socket.on("connect", () => { console.log(socket.connected) } )
@@ -42,7 +44,6 @@ function Chatcontainer() {
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
-
 
   function handleSend(type, val, listener_type = 1) 
   {
@@ -74,8 +75,7 @@ function Chatcontainer() {
         set_listener()
       }
 
-      /*//response.then(function(res) { return res[]})    
-      setTyping(true);
+      /*setTyping(true);
 //
       setTimeout(async () => {
         const data = await response 
@@ -113,13 +113,13 @@ function Chatcontainer() {
       });
     }, 1000);
 
-    collecteventdata
+    collecteventdata()
     })
   }
 
   function collecteventdata()
   {
-
+    return <eventForm/>
   }
 
 //
@@ -194,9 +194,6 @@ function Chatcontainer() {
       <div className="backimage">
         <div ><MyImageCaptureComponent /></div>
       </div>
-      {/* <div> Digital Human
-          {/* <img src="http://localhost:5500/frontend_interface/src/digi_receptionist.png" alt='lol' height={700} width={800} class='center'/>  }
-      </div> */}
       {/*<div >
         <img src="http://localhost:5500/BG-Bot.png" alt='Connection Error' height={900} width={1050}/>
       </div>*/}
