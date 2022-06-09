@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Chat, { Bubble,  /*Icon,  IconButton,  TreeNode,*/  useMessages } from "@chatui/core";
 import "@chatui/core/dist/index.css";
 import "./index.css";
@@ -24,6 +24,7 @@ const socket = io('ws://localhost:5000/');
 
 function Chatcontainer() {
   const { messages, appendMsg, setTyping } = useMessages(initialMessages);
+  const [listener, setListener] = useState(false)
   
   // Initiating a socketio connection
 
@@ -33,6 +34,7 @@ function Chatcontainer() {
   const {
       listening,
       transcript,
+      finalTranscript,
       resetTranscript,
       browserSupportsSpeechRecognition
     } = useSpeechRecognition();
@@ -42,7 +44,7 @@ function Chatcontainer() {
   }
 
 
-  function handleSend(type, val) 
+  function handleSend(type, val, listener_type = 1) 
   {
     if (type === "text" && val.trim()) {
       appendMsg({
@@ -52,9 +54,27 @@ function Chatcontainer() {
         user :{ avatar: 'http://127.0.0.1:5500/frontend_interface/src/user.svg' }
       });
 //
-      let response = API(val) // making the API call to receive a response from the bot.
-//
-      //response.then(function(res) { return res[]})    
+      //let response = API(val) // making the API call to receive a response from the bot.
+      if (listener_type == 1)
+      {
+        socket.emit('user-message', val)
+      }
+      else if(listener_type == 2)
+      {
+        //socket.emit()
+        return val
+      }
+        
+      setTyping(true);
+
+      // Using state to turn on listeners only once
+      if (listener == false)
+      {
+        setListener(true)
+        set_listener()
+      }
+
+      /*//response.then(function(res) { return res[]})    
       setTyping(true);
 //
       setTimeout(async () => {
@@ -64,9 +84,44 @@ function Chatcontainer() {
           content: { text: data },
           user: { avatar: 'http://127.0.0.1:5500/frontend_interface/src/logo.svg' },
         });
-      }, 1000);
+      }, 1000); */
     }
   }
+
+  function set_listener()
+  {
+    console.log("Starting the listener")
+    socket.on('bot-reply', (message) => { 
+
+    setTimeout( () => {
+      appendMsg({
+        type: "text",
+        content: { text: message },
+        user: { avatar: 'http://127.0.0.1:5500/frontend_interface/src/logo.svg'},
+      });
+    }, 1000);
+    })
+
+    // When calendar listener is activated
+    socket.on('cal-reply', (message) => {
+      
+    setTimeout( () => {
+      appendMsg({
+        type: "text",
+        content: { text: message },
+        user: { avatar: 'http://127.0.0.1:5500/frontend_interface/src/logo.svg'},
+      });
+    }, 1000);
+
+    collecteventdata
+    })
+  }
+
+  function collecteventdata()
+  {
+
+  }
+
 //
   function renderMessageContent(msg) {
     const { content } = msg;

@@ -106,6 +106,9 @@
     {
       "tag": "appointment",
       "patterns": [
+        "Schedule an Event in my Calendar",
+        "Create an Event in my Calendar",
+        "Create an Evenet",
         "Can you get me an appointment?",
         "Book me an appointment",
         "Can I want to meet your manager"

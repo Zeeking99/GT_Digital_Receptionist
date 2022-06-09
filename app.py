@@ -23,12 +23,23 @@ def connection_message(data):
 @socketio.on('user-message')
 def chatbot_response(message):
     print(message)
-    response =  c1.chat_response(message)
+    tag = c1.get_tag(message)
+
+    if(tag == 'appointment'):
+        emit('cal-reply', "Tell the details as prompted")
+
+        #on('cal-r')
+
+    else:    
+        response =  c1.chat_response(tag)
 
     print(response)
-    emit('user-message', response)
-    response = jsonify({ 'val': response }) 
+    emit('bot-reply', response)
+    #response = jsonify({ 'val': response }) 
 
+@socketio.on('cal-req')
+def cal_request(message):
+   pass 
 
 # Function for receiving messages from the user and sending the response
 @app.route("/send", methods=['GET', "POST"])

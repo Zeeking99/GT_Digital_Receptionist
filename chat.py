@@ -1,12 +1,8 @@
 import random
 import json
-
 import pyttsx3
-
 import torch
-
 import speech_recognition as sr
-
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 
@@ -99,11 +95,7 @@ class Chatbot:
     def book_appointment(self, date_string):
         print(list(date_string.split("'", )))
 
-
-        
-
-    def chat_response(self, user_input):
-
+    def get_tag(self, user_input):
         sentence = user_input
         #sentence = input("You: ")
         #if sentence == "quit":
@@ -124,26 +116,73 @@ class Chatbot:
         prob = probs[0][predicted.item()]
         
         if prob.item() > 0.75:
+            return tag
 
-    #        if tag == "appointment":
-    #           Have to implement google calender API
-    #        else:
-            for intent in self.intents['intents']:
+#            for intent in self.intents['intents']:
 
-                if tag == intent["tag"]:
-                    if tag == "date":
-                        self.book_appointment(user_input)
+#                if tag == intent["tag"]:
+#                    if tag == "date":
+#                        self.book_appointment(user_input)
                     
-                    text = random.choice(intent['responses'])
+#                    text = random.choice(intent['responses'])
                 
-                    #engine.say(text)
+#                    #engine.say(text)
                     
-                    return(text)
+#                    return(text)
+#                    #print(f"{bot_name}: {text}")
+#                    #engine.runAndWait()
+        
+        else:
+            return None
+            #print(f"{bot_name}: I do not understand...")
+            #engine.say("I do not understand")
+            #engine.runAndWait()
+
+        
+
+    def chat_response(self, tag):
+
+#        sentence = user_input
+#        #sentence = input("You: ")
+#        #if sentence == "quit":
+#        #    break
+#
+#        sentence = tokenize(sentence)
+#
+#        X = bag_of_words(sentence, self.all_words)
+#        X = X.reshape(1, X.shape[0])
+#        X = torch.from_numpy(X).to(self.device)
+#
+#        output = self.model(X)
+#        _, predicted = torch.max(output, dim=1)
+#
+#        tag = self.tags[predicted.item()]
+#
+#        probs = torch.softmax(output, dim=1)
+#        prob = probs[0][predicted.item()]
+#        
+#        if prob.item() > 0.75:
+#
+
+        if tag == None:
+            return("I do not understand")
+
+        for intent in self.intents['intents']:
+
+            if tag == intent["tag"]:
+                # if tag == "date":
+                #     self.book_appointment(user_input)
+                
+                text = random.choice(intent['responses'])
+            
+                #engine.say(text)
+                
+                return(text)
                     #print(f"{bot_name}: {text}")
                     #engine.runAndWait()
         
-        else:
-            return("I do not understand...")
+#        else:
+#            return("I do not understand...")
             #print(f"{bot_name}: I do not understand...")
             #engine.say("I do not understand")
             #engine.runAndWait()
